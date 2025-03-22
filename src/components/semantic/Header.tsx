@@ -13,7 +13,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 export const Header = () => {
   const { scrollDirection, isScrolled } = useScrollDirection();
 
-  const [_, setIsOpen] = useAtom(isBurgerMenuOpenAtom);
+  const [, setIsOpen] = useAtom(isBurgerMenuOpenAtom);
 
   return (
     <header

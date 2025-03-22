@@ -3,9 +3,11 @@ import Link from "next/link";
 export const NotFoundView = () => {
   return (
     <section className="flex flex-col items-center justify-center min-h-[75vh] text-center px-4">
-      <h2 className="text-4xl font-bold mb-4 text-gray-800">Page Not Found</h2>
+      <h2 className="text-4xl font-bold mb-4 text-gray-800">
+        Səhifə tapılmadı
+      </h2>
       <p className="text-lg text-gray-600 mb-6">
-        Oops! We couldn't find the page you're looking for.
+        axtarilan sehifeni tapmaq mumkun olmadi
       </p>
       <Link
         href="/"

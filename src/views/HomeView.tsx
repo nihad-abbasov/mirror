@@ -1,6 +1,7 @@
 "use client";
 
 import { MotionFadeIn } from "@/components/MotionFadeIn";
+import Image from "next/image";
 import { Parallax } from "react-scroll-parallax";
 
 interface ProjectItem {
@@ -71,9 +72,12 @@ export const HomeView = () => {
           <MotionFadeIn delay={0.2}>
             <div>
               <Parallax speed={-10}>
-                <img
+                <Image
                   src="/home/about-preview.jpeg"
                   alt="Mirror Studio interyer dizayn nümunəsi"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   className="w-full h-auto rounded-xl shadow-md"
                 />
               </Parallax>
@@ -94,11 +98,15 @@ export const HomeView = () => {
             {featuredProjects.map((project, idx) => (
               <MotionFadeIn key={idx} delay={idx * 0.1}>
                 <div className="rounded-xl overflow-hidden shadow-md group">
-                  <img
+                  <Image
                     src={project.img}
                     alt={project.title}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+
                   <div className="p-4 bg-white">
                     <h3 className="text-lg font-medium text-gray-800">
                       {project.title}
@@ -133,7 +141,10 @@ export const HomeView = () => {
             {galleryImages.map((img, index) => (
               <MotionFadeIn key={index} delay={index * 0.05}>
                 <div className="overflow-hidden rounded-xl">
-                  <img
+                  <Image
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     src={img}
                     alt={`Gallery image ${index + 1}`}
                     className="w-full h-48 md:h-60 object-cover hover:scale-105 transition-transform duration-300"
