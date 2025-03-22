@@ -5,9 +5,10 @@ interface NavItems {
 }
 
 const navItems: NavItems[] = [
-  { id: 1, name: "Projects", url: "/projects" },
-  { id: 2, name: "About", url: "/about" },
-  { id: 3, name: "Contact", url: "/contact" },
+  { id: 1, name: "Layihələr", url: "/projects" },
+  { id: 2, name: "Qalareya", url: "/gallery" },
+  { id: 3, name: "Haqqımızda", url: "/about" },
+  { id: 4, name: "Əlaqə", url: "/contact" },
 ];
 
 export const Nav = () => {
