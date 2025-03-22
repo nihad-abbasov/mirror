@@ -6,6 +6,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import { AllProviders } from "@/providers/AllProviders";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { BurgerMenu } from "@/components/BurgerMenu";
 
 const poppins = Poppins({
   weight: ["100", "400", "500", "600", "800"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <body className={`${poppins.className} antialiased`}>
           <ScrollProgress />
           <Header />
+          <BurgerMenu />
           <Main>{children}</Main>
           <Footer />
         </body>

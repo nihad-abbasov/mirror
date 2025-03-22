@@ -1,14 +1,19 @@
 "use client";
 
 import { useScrollDirection } from "@/hooks/useScrollDirection";
+import { isBurgerMenuOpenAtom } from "@/lib/atoms";
+import { motion } from "framer-motion";
+import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
 import { Nav } from "./Nav";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 export const Header = () => {
   const { scrollDirection, isScrolled } = useScrollDirection();
+
+  const [_, setIsOpen] = useAtom(isBurgerMenuOpenAtom);
 
   return (
     <header
@@ -37,7 +42,17 @@ export const Header = () => {
             />
           </motion.div>
         </Link>
-        <Nav isScrolled={isScrolled} />
+        {/* Burger Icon for mobile */}
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
+        >
+          <HiOutlineMenuAlt3 />
+        </button>
+        <div className="hidden md:block">
+          <Nav isScrolled={isScrolled} />
+        </div>
       </div>
     </header>
   );
