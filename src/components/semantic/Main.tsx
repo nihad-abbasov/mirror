@@ -3,5 +3,6 @@ export const Main = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <main className="myContainer py-6">{children}</main>;
+  //  className = "myContainer py-6";
+  return <main>{children}</main>;
 };

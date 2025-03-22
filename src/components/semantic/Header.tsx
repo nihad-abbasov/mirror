@@ -1,23 +1,43 @@
+"use client";
+
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 import Image from "next/image";
-import { Nav } from "./Nav";
 import Link from "next/link";
+import { Nav } from "./Nav";
+import clsx from "clsx";
+import { motion } from "framer-motion";
 
 export const Header = () => {
+  const { scrollDirection, isScrolled } = useScrollDirection();
+
   return (
-    <header className="w-full bg-gray-100 py-4 shadow-sm">
+    <header
+      className={clsx(
+        "w-full bg-gray-100 py-4 sticky top-0 z-50 transition-transform duration-300",
+        {
+          "translate-y-0": scrollDirection === "up",
+          "-translate-y-full": scrollDirection === "down",
+        }
+      )}
+    >
       <div className="header_inner myContainer flex items-center justify-between">
-        <Link href="/" className="logo_container">
-          <Image
-            src="/logo.png"
-            alt="Mirror Studio logo"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="w-1/2 h-auto max-w-[160px]"
-            priority
-          />
+        <Link href="/" className="logo_container block">
+          <motion.div
+            animate={{ scale: isScrolled ? 0.9 : 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          >
+            <Image
+              src="/logo.png"
+              alt="Mirror Studio Logo"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-1/2 h-auto max-w-[160px]"
+              priority
+            />
+          </motion.div>
         </Link>
-        <Nav />
+        <Nav isScrolled={isScrolled} />
       </div>
     </header>
   );

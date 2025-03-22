@@ -4,6 +4,8 @@ import { Main } from "@/components/semantic/Main";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import { AllProviders } from "@/providers/AllProviders";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const poppins = Poppins({
   weight: ["100", "400", "500", "600", "800"],
@@ -21,12 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </body>
-    </html>
+    <AllProviders>
+      <html lang="en">
+        <body className={`${poppins.className} antialiased`}>
+          <ScrollProgress />
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </body>
+      </html>
+    </AllProviders>
   );
 }

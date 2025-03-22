@@ -1,9 +1,17 @@
+// Nav.tsx
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface NavItem {
   id: number;
   name: string;
   url: string;
+}
+
+interface NavProps {
+  isScrolled?: boolean;
 }
 
 const navItems: NavItem[] = [
@@ -13,22 +21,27 @@ const navItems: NavItem[] = [
   { id: 4, name: "Əlaqə", url: "/contact" },
 ];
 
-export const Nav = () => {
+export const Nav = ({ isScrolled = false }: NavProps) => {
   return (
-    <nav aria-label="Primary navigation">
+    <nav aria-label="Main Navigation">
       <ul className="flex flex-row items-center gap-4">
         {navItems.map((item) => (
-          <li
+          <motion.li
             key={item.id}
+            animate={{
+              scale: isScrolled ? 0.95 : 1,
+              opacity: isScrolled ? 0.8 : 1,
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="relative py-2 px-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:bg-black after:w-0 after:h-[1px] hover:after:w-full after:transition-all after:duration-200"
           >
             <Link
               href={item.url}
-              className="hover:text-gray-600 transition-colors duration-200"
+              className="hover:text-gray-600 transition-colors"
             >
               {item.name}
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </nav>
