@@ -10,9 +10,9 @@ export const useScrollDirection = () => {
 
     const updateScrollDir = () => {
       const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 350);
+      setIsScrolled(currentScrollY > 250);
 
-      if (currentScrollY > lastScrollY && currentScrollY > 350) {
+      if (currentScrollY > lastScrollY && currentScrollY > 250) {
         setScrollDirection("down");
       } else if (currentScrollY < lastScrollY) {
         setScrollDirection("up");

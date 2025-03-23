@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollDirection } from "@/hooks/useScrollDirection";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { isBurgerMenuOpenAtom } from "@/lib/atoms";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
@@ -8,7 +9,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Nav } from "./Nav";
 import clsx from "clsx";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 export const Header = () => {
   const { scrollDirection, isScrolled } = useScrollDirection();

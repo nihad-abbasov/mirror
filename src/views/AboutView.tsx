@@ -55,7 +55,7 @@ export const AboutView = () => {
   return (
     <section className="w-full">
       {/* Hero Section */}
-      <article className="relative w-full h-[40vh] md:h-[60vh] flex items-center justify-center bg-[url('/about/hero.jpg')] bg-cover bg-center text-white text-center">
+      <article className="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center bg-[url('/about/hero.jpg')] bg-cover bg-center text-white text-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>
         <MotionFadeIn>
           <h1 className="text-4xl md:text-6xl font-light backdrop-blur-sm bg-white/30 px-4 py-2 rounded-md">
