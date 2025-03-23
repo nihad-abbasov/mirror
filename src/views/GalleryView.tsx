@@ -2,9 +2,11 @@
 
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { MotionFadeIn } from "@/components/MotionFadeIn";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import { Lightbox } from "@/components/Lightbox";
 
 interface GalleryImage {
   id: number;
@@ -50,18 +52,18 @@ const images: GalleryImage[] = [
 
 export const GalleryView = () => {
   const [activeCategory, setActiveCategory] = useState("Hamısı");
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
-
-  const { scrollDirection, isScrolled } = useScrollDirection();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const filteredImages =
     activeCategory === "Hamısı"
       ? images
       : images.filter((img) => img.category === activeCategory);
 
+  const { scrollDirection, isScrolled } = useScrollDirection();
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedImage(null);
+      if (e.key === "Escape") setSelectedIndex(null);
     };
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
@@ -110,7 +112,7 @@ export const GalleryView = () => {
             {filteredImages.map((img, idx) => (
               <MotionFadeIn key={img.id} delay={idx * 0.05}>
                 <div
-                  onClick={() => setSelectedImage(img)}
+                  onClick={() => setSelectedIndex(idx)}
                   className="overflow-hidden rounded-md group cursor-pointer"
                 >
                   <Image
@@ -125,35 +127,12 @@ export const GalleryView = () => {
             ))}
           </div>
 
-          {selectedImage && (
-            <div
-              className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4"
-              onClick={() => setSelectedImage(null)}
-            >
-              <div
-                className="max-w-4xl w-full relative"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  onClick={() => setSelectedImage(null)}
-                  className="absolute top-2 right-2 bg-black/60 text-white text-3xl hover:text-gray-300 cursor-pointer rounded-full p-2 w-10 h-10 flex justify-center items-center"
-                  aria-label="Close"
-                >
-                  &times;
-                </button>
-                <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-                <p className="text-white text-center text-2xl mt-4">
-                  {selectedImage.alt}
-                </p>
-              </div>
-            </div>
-          )}
+          <Lightbox
+            images={filteredImages}
+            index={selectedIndex}
+            onClose={() => setSelectedIndex(null)}
+            setIndex={setSelectedIndex}
+          />
         </div>
       </article>
     </section>
