@@ -62,7 +62,7 @@ export const Lightbox = ({
             {/* Close */}
             <button
               onClick={onClose}
-              className="absolute top-2 right-2 text-white text-3xl hover:text-gray-300"
+              className="absolute top-2 right-2 text-white text-3xl hover:text-gray-300 cursor-pointer bg-black/30 rounded-full p-1 w-10 h-10 flex items-center justify-center"
               aria-label="Close"
             >
               &times;
@@ -72,7 +72,7 @@ export const Lightbox = ({
             {index! > 0 && (
               <button
                 onClick={() => setIndex(index! - 1)}
-                className="absolute top-1/2 left-2 -translate-y-1/2 text-white text-3xl hover:text-gray-300"
+                className="absolute top-1/2 left-2 -translate-y-1/2 text-white text-3xl hover:text-gray-300 cursor-pointer"
                 aria-label="Previous"
               >
                 &#10094;
@@ -83,7 +83,7 @@ export const Lightbox = ({
             {index! < images.length - 1 && (
               <button
                 onClick={() => setIndex(index! + 1)}
-                className="absolute top-1/2 right-2 -translate-y-1/2 text-white text-3xl hover:text-gray-300"
+                className="absolute top-1/2 right-2 -translate-y-1/2 text-white text-3xl hover:text-gray-300 cursor-pointer"
                 aria-label="Next"
               >
                 &#10095;
