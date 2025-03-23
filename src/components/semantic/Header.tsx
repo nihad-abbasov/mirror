@@ -18,7 +18,7 @@ export const Header = () => {
   return (
     <header
       className={clsx(
-        "w-full bg-gray-100 py-4 sticky top-0 z-50 transition-transform duration-300",
+        "w-full bg-gray-100 py-0 sticky top-0 z-50 transition-transform duration-300",
         {
           "translate-y-0": scrollDirection === "up",
           "-translate-y-full": scrollDirection === "down",

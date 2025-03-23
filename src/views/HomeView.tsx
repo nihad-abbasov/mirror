@@ -28,7 +28,7 @@ export const HomeView = () => {
   return (
     <section className="w-full">
       {/* Hero Section */}
-      <article className="w-full min-h-[80vh] flex items-center justify-center bg-gray-50">
+      <article className="w-full min-h-[50vh] md:min-h-[80vh] flex items-center justify-center bg-gray-50">
         <MotionFadeIn>
           <div className="myContainer text-center">
             <h1 className="text-4xl md:text-6xl font-light text-gray-800 mb-6">
@@ -137,7 +137,7 @@ export const HomeView = () => {
               İlham Qalereyası
             </h2>
           </MotionFadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
             {galleryImages.map((img, index) => (
               <MotionFadeIn key={index} delay={index * 0.05}>
                 <div className="overflow-hidden rounded-xl">
