@@ -2,11 +2,10 @@
 
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { MotionFadeIn } from "@/components/MotionFadeIn";
-import { motion, AnimatePresence } from "framer-motion";
+import { Lightbox } from "@/components/Lightbox";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import { Lightbox } from "@/components/Lightbox";
 
 interface GalleryImage {
   id: number;
