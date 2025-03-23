@@ -6,14 +6,19 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const ProjectDetailsView = ({ slug }: any) => {
+type Props = {
+  slug: string;
+};
+
+export const ProjectDetailsView = ({ slug }: Props) => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  
   const project = projects.find((p) => p.slug === slug);
 
   console.log(slug);
 
   if (!project) return null;
 
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const galleryImages = project.gallery.map((img) => ({
     src: img,
     alt: `${project.title} şəkil`,

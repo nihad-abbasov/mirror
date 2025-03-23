@@ -2,6 +2,7 @@
 
 import { MotionFadeIn } from "@/components/MotionFadeIn";
 import Image from "next/image";
+import Link from "next/link";
 import { Parallax } from "react-scroll-parallax";
 
 interface ProjectItem {
@@ -39,12 +40,12 @@ export const HomeView = () => {
             <p className="text-lg md:text-xl max-w-xl mx-auto mb-8">
               Estetik, funksional və zamansız məkanlar yaratmaq üçün buradayıq.
             </p>
-            <a
+            <Link
               href="/projects"
               className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300"
             >
               Layihələrə bax
-            </a>
+            </Link>
           </div>
         </MotionFadeIn>
       </article>
@@ -119,12 +120,12 @@ export const HomeView = () => {
           </div>
           <MotionFadeIn delay={0.3}>
             <div className="text-center">
-              <a
+              <Link
                 href="/projects"
                 className="inline-block px-6 py-3 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300"
               >
                 Bütün layihələr
-              </a>
+              </Link>
             </div>
           </MotionFadeIn>
         </div>
