@@ -1,7 +1,7 @@
 "use client";
 
 import { Lightbox } from "@/components/Lightbox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/data/projects";
@@ -28,6 +28,24 @@ export const ProjectDetailsView = ({ project }: Props) => {
   const relatedProjects = projects
     .filter((p) => p.slug !== project.slug && p.category === project.category)
     .slice(0, 3);
+
+  useEffect(() => {
+    if (!project) return;
+
+    const existing = JSON.parse(
+      localStorage.getItem("recently_viewed") || "[]"
+    );
+
+    const updated = [
+      project.slug,
+      ...existing.filter((s: string) => s !== project.slug),
+    ];
+
+    localStorage.setItem(
+      "recently_viewed",
+      JSON.stringify(updated.slice(0, 10))
+    );
+  }, [project]);
 
   return (
     <section className="w-full">
