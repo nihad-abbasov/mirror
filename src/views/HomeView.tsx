@@ -4,6 +4,7 @@ import { MotionFadeIn } from "@/components/MotionFadeIn";
 import Image from "next/image";
 import Link from "next/link";
 import { Parallax } from "react-scroll-parallax";
+import { WorkProcessSection } from "./homeSections/WorkProcessSection";
 
 interface ProjectItem {
   title: string;
@@ -130,6 +131,9 @@ export const HomeView = () => {
           </MotionFadeIn>
         </div>
       </article>
+
+      {/* Work Process Section */}
+      <WorkProcessSection />
 
       {/* Gallery Preview Section */}
       <article className="w-full py-20 bg-white">
