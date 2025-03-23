@@ -1,23 +1,24 @@
 "use client";
 
 import { Lightbox } from "@/components/Lightbox";
-import { projects } from "@/lib/data/projects";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { projects } from "@/lib/data/projects";
 
 type Props = {
-  slug: string;
+  project: {
+    slug: string;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+    gallery: string[];
+  };
 };
 
-export const ProjectDetailsView = ({ slug }: Props) => {
+export const ProjectDetailsView = ({ project }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  
-  const project = projects.find((p) => p.slug === slug);
-
-  console.log(slug);
-
-  if (!project) return null;
 
   const galleryImages = project.gallery.map((img) => ({
     src: img,
