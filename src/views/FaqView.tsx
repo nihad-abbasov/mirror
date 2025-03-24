@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Input, Collapse } from "antd";
-import type { CollapseProps } from "antd";
 import { MotionFadeIn } from "@/components/MotionFadeIn";
 import { useDebounce } from "@/hooks/useDebounce";
+import type { CollapseProps } from "antd";
+import { Input, Collapse } from "antd";
+import { useState } from "react";
 import Link from "next/link";
 
 const { Search } = Input;
