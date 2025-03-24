@@ -1,10 +1,10 @@
 "use client";
 
+import { WorkProcessSection } from "./homeSections/WorkProcessSection";
 import { MotionFadeIn } from "@/components/MotionFadeIn";
+import { Parallax } from "react-scroll-parallax";
 import Image from "next/image";
 import Link from "next/link";
-import { Parallax } from "react-scroll-parallax";
-import { WorkProcessSection } from "./homeSections/WorkProcessSection";
 
 interface ProjectItem {
   title: string;
