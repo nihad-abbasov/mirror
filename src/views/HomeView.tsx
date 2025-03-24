@@ -35,7 +35,7 @@ export const HomeView = () => {
         <MotionFadeIn>
           <div className="myContainer text-center relative z-10">
             <h1 className="text-4xl md:text-6xl font-light mb-6">
-              Daxili dizayn <br className="hidden md:block" />
+              İnteryer dizayn <br className="hidden md:block" />
               ilə yeni nəfəs
             </h1>
             <p className="text-lg md:text-xl max-w-xl mx-auto mb-8">
