@@ -1,10 +1,21 @@
 "use client";
 
-import { useAtom } from "jotai";
-import { isBurgerMenuOpenAtom } from "@/lib/atoms";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaPinterestP } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { InputTextField } from "./form/InputTextField";
+import { CFormProvider } from "./form/CFormProvider";
+import { isBurgerMenuOpenAtom } from "@/lib/atoms";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useAtom } from "jotai";
+import Link from "next/link";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  search: yup.string().required("Bu xana vacibdir"),
+});
+
+type FormValues = yup.InferType<typeof schema>;
 
 interface MenuItem {
   name: string;
@@ -39,6 +50,14 @@ const itemVariants = {
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useAtom(isBurgerMenuOpenAtom);
 
+  const methods = useForm<FormValues>({
+    resolver: yupResolver(schema),
+  });
+
+  const handleSubmit = (formData: FormValues) => {
+    console.log(formData);
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -69,12 +88,14 @@ export const BurgerMenu = () => {
             </button>
 
             {/* ✅ Search bar */}
-            <input
-              type="text"
-              placeholder="Axtar..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm outline-none focus:border-black focus:ring-1 focus:ring-black"
-              autoFocus
-            />
+            <CFormProvider methods={methods} onSubmit={handleSubmit}>
+              <InputTextField
+                name="search"
+                placeholder="Axtar..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm outline-none focus:border-black focus:ring-1 focus:ring-black"
+                // autoFocus
+              />
+            </CFormProvider>
 
             {/* Navigation */}
             <motion.nav
