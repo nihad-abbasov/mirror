@@ -7,7 +7,6 @@ import { MotionFadeIn } from "@/components/MotionFadeIn";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { useEffect } from "react";
 
 const schema = yup.object().shape({
   fullname: yup.string().required("Bu xana vacibdir"),
@@ -26,6 +25,7 @@ export const ContactView = () => {
     formState: { isSubmitting },
   } = methods;
 
+  // TODO: consider notifications for success and error states on submit
   const handleSubmit = async (formData: FormValues) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log("Form submitted:", formData);
