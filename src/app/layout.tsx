@@ -6,7 +6,7 @@ import { BurgerMenu } from "@/components/BurgerMenu";
 import { Main } from "@/components/semantic/Main";
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
-import "antd/dist/reset.css";
+// import "antd/dist/reset.css";
 import "./globals.css";
 
 const poppins = Poppins({

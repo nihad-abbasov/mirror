@@ -53,6 +53,8 @@ export const Footer = () => {
               { label: "Haqqımızda", href: "/about" },
               { label: "Layihələr", href: "/projects" },
               { label: "Əlaqə", href: "/contact" },
+              { label: "Xidmətlərimiz", href: "/services" },
+              { label: "FAQ", href: "/faq" },
             ].map((link) => (
               <li key={link.href}>
                 <Link

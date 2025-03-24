@@ -19,6 +19,8 @@ const navItems: NavItem[] = [
   { id: 2, name: "Qalareya", url: "/gallery" },
   { id: 3, name: "Haqqımızda", url: "/about" },
   { id: 4, name: "Əlaqə", url: "/contact" },
+  // { id: 5, name: "Xidmətlərimiz", url: "/services" },
+  // { id: 6, name: "FAQ", url: "/faq" },
 ];
 
 export const Nav = ({ isScrolled = false }: NavProps) => {
