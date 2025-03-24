@@ -7,6 +7,7 @@ import { MotionFadeIn } from "@/components/MotionFadeIn";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import clsx from "clsx";
 
 const schema = yup.object().shape({
   fullname: yup.string().required("Bu xana vacibdir"),
@@ -84,25 +85,31 @@ export const ContactView = () => {
                 placeholder="Abbas Abbasov"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm outline-none "
               />
-
               <InputTextField
                 name="email"
                 label="Email"
                 placeholder="mirror@gmail.com"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm outline-none "
               />
-
               <InputTextareaField
                 name="message"
                 label="Mesajınız"
                 placeholder="İstəklərinizi burada qeyd edin"
               />
-              <input
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                value={isSubmitting ? "Göndərilir" : "Göndər"}
-                className="inline-block px-6 py-2 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              />
+                className={clsx(
+                  "inline-block px-6 py-2 border border-black text-black transition-colors duration-300",
+                  {
+                    "cursor-pointer hover:bg-black hover:!text-white":
+                      !isSubmitting,
+                    "opacity-50 cursor-not-allowed": isSubmitting,
+                  }
+                )}
+              >
+                {isSubmitting ? "Göndərilir" : "Göndər"}
+              </button>
             </CFormProvider>
           </MotionFadeIn>
         </div>

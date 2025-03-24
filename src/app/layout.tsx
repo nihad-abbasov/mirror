@@ -1,12 +1,13 @@
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { AllProviders } from "@/providers/AllProviders";
 import { Header } from "@/components/semantic/Header";
 import { Footer } from "@/components/semantic/Footer";
-import { Main } from "@/components/semantic/Main";
-import type { Metadata } from "next";
-import "./globals.css";
-import { Poppins } from "next/font/google";
-import { AllProviders } from "@/providers/AllProviders";
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { BurgerMenu } from "@/components/BurgerMenu";
+import { Main } from "@/components/semantic/Main";
+import { Poppins } from "next/font/google";
+import type { Metadata } from "next";
+import "antd/dist/reset.css";
+import "./globals.css";
 
 const poppins = Poppins({
   weight: ["100", "400", "500", "600", "800"],
