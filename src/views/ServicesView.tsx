@@ -74,7 +74,7 @@ export const ServicesView = () => {
   return (
     <section className="w-full">
       {/* Hero Section */}
-      <article className="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center bg-[url('/services/hero.jpg')] bg-cover bg-center">
+      <article className="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center bg-[url('/services/hero.jpg')] bg-cover bg-bottom">
         <div className="absolute inset-0 bg-black/60" />
         <MotionFadeIn>
           <h1 className="text-4xl md:text-6xl font-light text-white relative z-10 px-4 py-2 backdrop-blur-sm bg-white/20 rounded-md">
@@ -95,7 +95,7 @@ export const ServicesView = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {services.map((service, idx) => (
               <MotionFadeIn key={idx} delay={idx * 0.1}>
-                <div className="p-6 rounded-xl shadow-md border hover:shadow-lg transition">
+                <div className="p-6 rounded-xl shadow-md border hover:shadow-lg transition min-h-[250px] flex flex-col">
                   <div className="mb-4">{service.icon}</div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     {service.title}
