@@ -89,14 +89,16 @@ export const Footer = () => {
           </p>
           <p className="text-sm">
             Created by{" "}
-            <a
-              href="https://creadive.az"
+            <Link
+              // TODO: Replace it with new creadive website after its complete
+              // href="https://creadive.az"
+              href="https://instagram.com/creadive.az"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm underline hover:text-gray-600 transition-colors duration-200"
             >
               Creadive
-            </a>
+            </Link>
           </p>
         </div>
       </div>
